@@ -1,0 +1,14 @@
+
+*** These modified files were found in JOE when it aborted on Sun Mar 17 17:37:12 2019
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+artisan
+config/logging.php
+/etc/apache2/sites-enabled/002-symfony.conf
+
+*** File '* Startup Log *'
+Processing '/etc/joe/joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/joerc

@@ -1,0 +1,21 @@
+services:
+    admin.marca:
+         class: SoporteBundle\Admin\MarcaAdmin
+         arguments: [~, SoporteBundle\Entity\Marca, ~]
+         tags:
+             - { name: sonata.admin, manager_type: orm, label: Marca, group: "Catalogo" }
+    admin.proveedor:
+         class: SoporteBundle\Admin\ProveedorAdmin
+         arguments: [~, SoporteBundle\Entity\Proveedor, ~]
+         tags:
+             - { name: sonata.admin, manager_type: orm, label: Proveedor, group: "Catalogo" }            
+    admin.producto:
+         class: SoporteBundle\Admin\ProductoAdmin
+         arguments: [~, SoporteBundle\Entity\Producto, ~]
+         tags:
+             - { name: sonata.admin, manager_type: orm, label: Producto, group: "Catalogo" }           
+    admin.inventario:
+         class: SoporteBundle\Admin\InventarioAdmin
+         arguments: [~, SoporteBundle\Entity\Inventario, ~]
+         tags:
+             - { name: sonata.admin, manager_type: orm, label: Inventario, group: "Catalogo" }       

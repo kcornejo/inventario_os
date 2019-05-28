@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta name="description" content="bootstrap admin template">
+        <meta name="author" content="">
+        <title>{% block title %}WebPos{% endblock %}</title>
+        <link rel="apple-touch-icon" href="{{ asset('assets/topbar/images/apple-touch-icon.png') }}?v=1">
+        {#        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />#}
+        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}?v=1">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="{{ asset('assets/global/css/bootstrap.min.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/css/bootstrap-extend.min.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/topbar/css/site.min.css') }}?v=1">
+        <!-- Plugins -->
+        <link rel="stylesheet" href="{{ asset('assets/global/vendor/animsition/animsition.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/vendor/asscrollable/asScrollable.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/vendor/switchery/switchery.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/vendor/intro-js/introjs.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/vendor/slidepanel/slidePanel.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/vendor/flag-icon-css/flag-icon.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/vendor/toastr/toastr.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/vendor/bootstrap-datepicker/bootstrap-datepicker.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/vendor/alertify/alertify.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/alertify.css') }}">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="{{ asset('assets/global/fonts/web-icons/web-icons.min.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/fonts/brand-icons/brand-icons.min.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/fonts/material-design/material-design.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/spin/jquery.spin.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('assets/global/vendor/select2/select2.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('css/fonts_googleapi.css') }}?v=1">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-toggle.min.css') }}?v=1">
+    {% block stylesheets %}{% endblock %}
+    <!-- Scripts -->
+    <script src="{{ asset('assets/global/vendor/breakpoints/breakpoints.js') }}?v=1"></script>
+    <script>
+        Breakpoints();
+    </script>
+</head>
+<body class="animsition site-navbar-small ">
+    <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega navbar-inverse"
+         role="navigation" style="background-color: #6c8cf1;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
+                    data-toggle="menubar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-collapse"
+                    data-toggle="collapse">
+                <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+            </button>
+            <a class="navbar-brand navbar-brand-center" href="{{ path('webpos_soporte_homepage') }}">
+                <img class="navbar-brand-logo navbar-brand-logo-normal" src="{{ asset('assets/images/imagen.png') }}"
+                     title="WebPos" style="height: 200%;" style="margin-bottom:20px;">
+                <img class="navbar-brand-logo navbar-brand-logo-special" src="{{ asset('assets/images/imagen.png') }}"
+                     title="WebPos" style="height: 200%;" style="margin-bottom: 20px;">
+                {#                <span class="navbar-brand-text hidden-xs-down"> WebPos</span>#}
+            </a>
+        </div>
+        <div class="navbar-container container-fluid">
+            <!-- Navbar Collapse -->
+            <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+                <!-- Navbar Toolbar -->
+                <ul class="nav navbar-toolbar">
+                    <li class="nav-item hidden-float" id="toggleMenubar">
+                        <a class="nav-link" data-toggle="menubar" href="#" role="button">
+                            <i class="icon hamburger hamburger-arrow-left">
+                                <span class="sr-only">Toggle menubar</span>
+                                <span class="hamburger-bar"></span>
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- End Navbar Toolbar -->
+                <!-- Navbar Toolbar Right -->
+                {% include 'toolbar-derecho.html.twig' %}
+                <!-- End Navbar Toolbar Right -->
+            </div>
+            <!-- End Navbar Collapse -->
+            <!-- Site Navbar Seach -->
+            <div class="collapse navbar-search-overlap" id="site-navbar-search">
+                <form role="search">
+                    <div class="form-group">
+                        <div class="input-search">
+                            <i class="input-search-icon wb-search" aria-hidden="true"></i>
+                            <input type="text" class="form-control" name="site-search" placeholder="Search...">
+                            <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
+                                    data-toggle="collapse" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End Site Navbar Seach -->
+        </div>
+    </nav>
+    <!-- Page -->
+    <div class="page">
+        <div class="page-content">
+            <div class="base_spin"
+                 style="width: 95%; height: 90%; position: fixed; z-index:1000; margin: -30px auto; background-color:rgba(255,255,255,0.4);">
+                <div class="spin" data-spin
+                     style="z-index: 10000; position: absolute; margin: auto; top: 0; left: 0; bottom: 0; right: 0;">
+                </div>
+            </div>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog" id='BodyModal'>
+                </div>
+            </div>
+        {% block body %}{% endblock %}
+    </div>
+</div>
+<!-- End Page -->
+<!-- Footer -->
+
+<!-- Core  -->
+<script src="{{ asset('assets/global/vendor/babel-external-helpers/babel-external-helpers.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/jquery/jquery.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/tether/tether.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/bootstrap/bootstrap.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/animsition/animsition.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/mousewheel/jquery.mousewheel.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/asscrollbar/jquery-asScrollbar.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/asscrollable/jquery-asScrollable.js') }}?v=1"></script>
+<!-- Plugins -->
+<script src="{{ asset('assets/global/vendor/switchery/switchery.min.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/intro-js/intro.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/screenfull/screenfull.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/slidepanel/jquery-slidePanel.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/toastr/toastr.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/bootstrap-datepicker/bootstrap-datepicker.js') }}?v=1"></script>
+
+<!-- Scripts -->
+<script src="{{ asset('assets/global/js/State.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/js/Component.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/js/Plugin.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/js/Base.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/js/Config.js') }}?v=1"></script>
+<script src="{{ asset('assets/topbar/js/Section/Menubar.js') }}?v=1"></script>
+<script src="{{ asset('assets/topbar/js/Section/Sidebar.js') }}?v=1"></script>
+<script src="{{ asset('assets/topbar/js/Section/PageAside.js') }}?v=1"></script>
+<script src="{{ asset('assets/topbar/js/Plugin/menu.js') }}?v=1"></script>
+{#<script src="{{asset('assets/global/vendor/select2/select2.full.min.js')}}"></script>#}
+<!-- Config -->
+<script src="{{ asset('assets/global/js/config/colors.js') }}?v=1"></script>
+<script src="{{ asset('assets/topbar/js/config/tour.js') }}?v=1"></script>
+<script>
+        Config.set('assets', '{{ asset('assets/topbar') }}');
+</script>
+<!-- Page -->
+<script src="{{ asset('assets/topbar/js/Site.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/js/Plugin/asscrollable.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/js/Plugin/slidepanel.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/js/Plugin/switchery.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/js/Plugin/toastr.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/spin/jquery.spin.js') }}?v=1"></script>
+<script src="{{ asset('js/jSignature/jSignature.min.js') }}?v=1"></script>
+{#<script src="{{asset('js/jquery.js')}}"></script>#}
+<script src="{{ asset('js/select2-tab.js') }}?v=1"></script>
+<script src="{{ asset('js/moment.min.js') }}?v=1"></script>
+<script src="{{ asset('assets/global/vendor/alertify/alertify.js') }}"></script>
+<script src="{{ asset('assets/global/js/Plugin/alertify.js') }}"></script>
+<script src="{{ asset('assets/global/vendor/select2/select2.full.min.js') }}?v=1"></script>
+<script src="{{ asset('js/webcam.js') }}?v=1"></script>
+<script type="text/javascript" src="{{ asset('js/velscript.js') }}?v=3"></script>
+<script src="{{ asset('js/bootstrap-toggle.min.js') }}?v=1"></script>
+{% block javascripts %}{% endblock %}
+<script>
+        (function (document, window, $) {
+            'use strict';
+            var Site = window.Site;
+            $(document).ready(function () {
+                Site.run();
+            });
+        })(document, window, jQuery);
+</script>
+</body>
+</html>
+

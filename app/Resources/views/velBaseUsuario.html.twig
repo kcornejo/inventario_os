@@ -1,0 +1,58 @@
+{% extends 'SonataAdminBundle:CRUD:base_edit.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{asset('assets/global/vendor/summernote/summernote.css')}}">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/global/vendor/summernote/summernote.min.js') }}" type="text/javascript"></script>
+
+    <script>
+        function velCambioDatosUsuario(id_origen, id_destino, url_destino) {
+            if (id_origen.search(".") == 0) {
+                $(id_origen).each(function () {
+                    id_origen = "#" + $(this).attr('id');
+                });
+            }
+            if (id_destino.search(".") == 0) {
+                $(id_destino).each(function () {
+                    id_destino = "#" + $(this).attr('id');
+                });
+            }
+            var valor = jQuery(id_origen).val();
+            var valor_destino = jQuery(id_destino).val();
+            $.ajax({
+                url: url_destino,
+                type: "POST",
+                dataType: "JSON",
+                async: false,
+                data: {"valor": valor},
+            }).done(function (response) {
+                $(id_destino).html("");
+                $.each(response, function (llave, valor) {
+                    if (valor['id'] == valor_destino) {
+                        $(id_destino).append("<option selected='selected' value='" + valor['id'] + "'>" + valor['descripcion'] + "</option>");
+                    } else {
+                        $(id_destino).append("<option value='" + valor['id'] + "'>" + valor['descripcion'] + "</option>");
+                    }
+                });
+                if (response.length == 2) {
+                    $(id_destino + ' option[value=' + response[1].id + ']').attr("selected", 'true');
+                } else {
+                    $(id_destino).val("");
+                }
+                $(id_destino).val(valor_destino);
+                $(id_destino).trigger("change");
+            }).fail(function (xhr, textStatus, errorThrown) {
+                opcionesToastr.iconClass = 'toast-error';
+                toastr.error(errorThrown, xhr.status, opcionesToastr);
+            });
+            var elemento = jQuery(id_origen).get(0);
+            elemento.setCustomValidity("");
+        }
+        $(document).ready(function () {
+            velCambioDatosUsuario(".usuario_empresa_input", ".sucursal_input", "{{path('carga_sucursal_ajax')}}");
+        });
+    </script>
+    <script src="{{ asset('js/velscript.js') }}" type="text/javascript"></script>
+{% endblock %}

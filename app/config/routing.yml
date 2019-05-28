@@ -1,0 +1,16 @@
+soporte:
+    resource: "@SoporteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
+admin_area:
+    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+    prefix: /catalogo
+    
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /catalogo

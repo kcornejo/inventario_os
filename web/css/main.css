@@ -1,0 +1,64 @@
+.site-navbar .navbar-header .navbar-brand-logo {
+    height: 48px;
+    margin-top: -.93rem;
+}
+
+.error_list {
+    color: red;
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.toast-message{
+    font-size:16px;
+    font-weight: bold;
+}
+.toast-title{
+    font-size:20px;
+    font-weight: bold;
+}
+.help-inline{
+    color: #737373;
+    display: inline-block;
+    font-size: 13px;
+    padding: 5px;
+    font-style:italic;
+}
+
+.btnPrincipal {
+    width:118px;
+    height:133px;
+    margin:auto;
+}
+
+.container{
+    width:700px;
+    margin-top:20px;
+}
+
+.panel-title{
+    font-size:25px;
+}
+
+.toggle.ios, .toggle-on.ios, .toggle-off.ios, .toggle.ios .toggle-handle {
+    border-radius: 15px;
+}
+
+.toggle-on, .toggle-off {
+    font-weight: bold;
+}
+
+.form-margin {
+    margin-top: 8px;
+}
+
+.form-title {
+    margin-top: 30px;
+}
+
+@media only screen and (max-width: 840px) {
+    .pearl-title {
+        font-size: 13px;
+    }
+}
